@@ -1,0 +1,12 @@
+{
+  "name": "algoritmos-basicos-em-nodejs",
+  "version": "1.0.0",
+  "description": "Algoritmos básicos implmentados em Javascript usando node.js",
+  "license": "GPL-3.0-or-later",
+  "author": "Wellington Wagner F. Sarmento",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
