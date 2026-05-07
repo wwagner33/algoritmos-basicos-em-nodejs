@@ -1,23 +1,23 @@
 function pesquisaBinaria(lista, item) {
-  let baixo = 0;
-  let alto = lista.length - 1;
+  let esq = 0;
+  let dir = lista.length - 1;
 
-  while (baixo <= alto) {
-    let meio = Math.floor((baixo + alto) / 2);
+  while (esq <= dir) {
+    let meio = Math.floor((esq + dir) / 2);
     let chute = lista[meio];
 
     if (chute === item) {
       return meio;
     }
     if (chute > item) {
-      alto = meio - 1;
+      dir = meio - 1;
     } else {
-      baixo = meio + 1;
+      esq = meio + 1;
     }
   }
   return null;
 }
 
-const minhaLista = [1, 3, 5, 7, 9];
-console.log(pesquisaBinaria(minhaLista, 3)); // Saída: 1
-console.log(pesquisaBinaria(minhaLista, -1)); // Saída: null
+const minhaLista = [1, 3, 5, 7, 9, 13,25,67,89,100];
+console.log(`Resposta da Busca: ${pesquisaBinaria(minhaLista, 13)}`); 
+console.log(`Resposta da Busca: ${pesquisaBinaria(minhaLista, 10)}`);
