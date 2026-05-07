@@ -8,7 +8,7 @@
 Escreva uma função chamada `contarDivisores(n)` que recebe um número inteiro positivo e retorna quantos divisores ele tem.
 1.  **Versão A (Básica):** Use um laço `for` que percorre de $1$ até $n$.
 2.  **Versão B (Otimizada):** Use o que aprendemos sobre a "raiz quadrada". Se você encontrar um divisor $d$ que seja menor que $\sqrt{n}$, você automaticamente descobriu outro divisor ($n/d$).
-3.  **Bônus:** Use `console.time()` e `console.timeEnd()` para comparar o tempo de execução das duas versões com o número $999.999 .999$.
+3.  **Bônus:** Use `performance.now()` para comparar o tempo de execução das duas versões com o número $999.999 .999$.
 
 > **Dica para o aluno:** Lembre-se de tratar o caso onde o número é um "quadrado perfeito" (como $5 \times 5 = 25$), para não contar o mesmo divisor duas vezes!
 
