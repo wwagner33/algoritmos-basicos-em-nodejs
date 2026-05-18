@@ -15,15 +15,18 @@ Algoritmo:
 
 */
 
-function isPrimev1(num) {
+function isPrimev1(num,logging=false) {
     if (num <= 1) return false; // Números menores ou iguais a 1 não são primos
     if (num <= 3) return true;  // 2 e 3 são primos
 
     if (num % 2 === 0 || num % 3 === 0) return false; // Elimina múltiplos de 2 e 3
 
-    for (let i = 5; i < num; i++) { // Verifica os números da forma 6k ± 1
+    for (let i = 5; i <= num; i++) {
         if (num % i === 0) {
             return false; // Se for divisível por algum desses números, não é primo
+        }
+        if (logging) {
+            console.log(`Verificando divisibilidade por ${i}...`); // Adiciona um log para mostrar o progresso da verificação
         }
     }
 
@@ -80,7 +83,7 @@ function isPrimev5(num) {
     if (num <= 3) return true;  // 2 e 3 são primos
 
     if (num % 2 === 0 || num % 3 === 0) return false; // Elimina múltiplos de 2 e 3
-    let sqlNum = Math.sqrt(num); // Calcula a raiz quadrada do número fornecido
+    let sqlNum = Math.floor(Math.sqrt(num)); // Calcula a raiz quadrada do número fornecido
     for (let i = 5; i < sqlNum; i+=6) { // Verifica os números da forma 6k ± 1
         if (num % i === 0|| num % 3 === 0) {
             return false; // Se for divisível por algum desses números, não é primo
@@ -90,16 +93,24 @@ function isPrimev5(num) {
     return true; // Se passar por todas as verificações, é primo
 }
 
-let nums = [2,7,11,24,1,0,421,4751,31081,375643,4915219,68303507,360653149,8374982981];
+//let nums = [2,7,11,24,1,0,421,4751,31081,375643,4915219,68303507,360653149,8374982981];
+// let nums = [77740643164984133573]; O valor 77740643164984133573 é um número primo, mas ele é maior do que o limite de precisão do JavaScript, então a função isPrimev5 irá retornar null para indicar que o resultado é impreciso.
+let nums = [351819000164201];
 let timeResults = [];
 
+// Captura o erro (exceção) quando a função é chamada, caso ocorra.
+try{
+    nums.forEach(num => {
+        let startTime = performance.now();
+        let result = isPrimev1(num, true);
+        let endTime = performance.now();
+        timeResults.push({num, result, time: endTime - startTime});
+    });
+}catch(err){
+    console.log(`Erro capturado: ${err}`);
+}
 
-nums.forEach(num => {
-    let startTime = performance.now();
-    let result = isPrimev1(num);
-    let endTime = performance.now();
-    timeResults.push({num, result, time: endTime - startTime});
-});
+
 
 console.log(timeResults);
 /**
