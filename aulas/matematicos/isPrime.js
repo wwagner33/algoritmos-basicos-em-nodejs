@@ -15,7 +15,8 @@ Algoritmo:
 
 */
 
-function isPrimev1(num,logging=false) {
+function isPrimev1(num,logging=true) {
+
     if (num <= 1) return false; // Números menores ou iguais a 1 não são primos
     if (num <= 3) return true;  // 2 e 3 são primos
 
@@ -94,20 +95,25 @@ function isPrimev5(num) {
 }
 
 //let nums = [2,7,11,24,1,0,421,4751,31081,375643,4915219,68303507,360653149,8374982981];
-// let nums = [77740643164984133573]; O valor 77740643164984133573 é um número primo, mas ele é maior do que o limite de precisão do JavaScript, então a função isPrimev5 irá retornar null para indicar que o resultado é impreciso.
-let nums = [351819000164201];
+//let nums = [77740643164984133573]; O valor 77740643164984133573 é um número primo, mas ele é maior do que o limite de precisão do JavaScript, então a função isPrimev5 irá retornar null para indicar que o resultado é impreciso.
+let nums = "[77740643164984133573]";
+//let nums = [351819000164201];
 let timeResults = [];
-
+if (typeof nums !== 'array') {
+    console.log(`O valor fornecido para nums é uma string: ${nums}`);
+    console.log('Convertendo a string para um array de números...');
+    nums = JSON.parse(nums);
+}
 // Captura o erro (exceção) quando a função é chamada, caso ocorra.
 try{
     nums.forEach(num => {
         let startTime = performance.now();
-        let result = isPrimev1(num, true);
+        let result = isPrimev1(num);
         let endTime = performance.now();
         timeResults.push({num, result, time: endTime - startTime});
     });
 }catch(err){
-    console.log(`Erro capturado: ${err}`);
+    console.log(`Erro capturado quando foi fornecido o valor nums: ${err}`);
 }
 
 
