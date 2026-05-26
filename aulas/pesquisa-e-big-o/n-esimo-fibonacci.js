@@ -6,7 +6,7 @@ A sequência começa com 0 e 1, e os próximos números são gerados a partir de
 Exemplo: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89...
 
 */
-let n=45;
+
 
 /*
 
@@ -131,17 +131,20 @@ Se você tentar calcular fibonacciBinet(79), a fórmula devolverá o resultado c
 // ============================================================================
 // Área de Testes
 // ============================================================================
+
+let n=45;
 const inicio1 = performance.now();
-console.log(`Calculando para n=${n}: ${fibonacciRuim(n)}`);
+// console.log(`Calculando para n=${n}: ${fibonacciRuim(n)}`);
+fibonacciRuim(n);
 const fim1 = performance.now();
 console.log(`A função fibonacciRuim levou: ${fim1-inicio1} milissegundos para ser executada.`);
 
-const inicio2 = performance.now();
-console.log(`Calculando para n=${n}: ${fibonacciMemo(n)}`);
-const fim2 = performance.now();
-console.log(`A função fibonacciMemo levou: ${fim2-inicio2} milissegundos para ser executada.`);
+// const inicio2 = performance.now();
+// console.log(`Calculando para n=${n}: ${fibonacciMemo(n)}`);
+// const fim2 = performance.now();
+// console.log(`A função fibonacciMemo levou: ${fim2-inicio2} milissegundos para ser executada.`);
 
-const inicio3 = performance.now();
-console.log(`Calculando para n=${n}: ${fibonacciBinet(n)}`);
-const fim3 = performance.now();
-console.log(`A função fibonacciBinet levou: ${fim3-inicio3} milissegundos para ser executada.`);
+// const inicio3 = performance.now();
+// console.log(`Calculando para n=${n}: ${fibonacciBinet(n)}`);
+// const fim3 = performance.now();
+// console.log(`A função fibonacciBinet levou: ${fim3-inicio3} milissegundos para ser executada.`);
