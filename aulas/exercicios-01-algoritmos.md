@@ -5,7 +5,7 @@
  
 Prof. Wellington Sarmento
 
-# Exercício 01 do Livro de Algoritmos
+# Lista de Exercícios 01
 
 Os exercícios abaixo são colhidos dos capítulos 1, 2 e 3 de (Bhargava, 2017).
 
