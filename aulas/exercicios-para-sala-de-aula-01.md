@@ -10,11 +10,39 @@
 **O Desafio:**
 Escreva uma função chamada `contarDivisores(n)` que recebe um número inteiro positivo e retorna quantos divisores ele tem.
 
-1. Use um laço `for` que percorre de $1$ até $n$.
-2. Se encontrarmos um divisor $d$ que seja menor que $\sqrt{n}$, podemos automaticamente descobriu outro divisor ($n/d$). Refaça a rotina `contarDivisores(n)`, usando esta informação.
-3. Use `console.time()` e `console.timeEnd()` para comparar o tempo de execução das duas versões com o número $999.999.999$.
+1. **Primeira Versão da Função**: 
+   Na primeira versão de código para responder ao desafio desta questão, use um laço `for` que percorre de $1$ até $n$, como base para seu teste de quais são os divisores do número $n$.
+2. **Primeira Versão da Função**:
+   Como estratégia para uma segunda solução para o desafio desta questão, sugiro que usem a estratégia do _Trial Division Algorithm_, usado para identificar um número **primo**. 
+   Nesta abordagem, ao invés de percorer todos os números entre os valoes **1 e n**, o laço vai de **1 até $\sqrt{n}$**. Se encontrarmos um divisor $a$ que seja menor que $\sqrt{n}$, podemos automaticamente descobriu outro divisor, $b$, fazendo $ b = n/a$.
+   Dessa forma, podemos procurar que números entre **1 até $\sqrt{n}$** são divisores de **n**, caso exista, este número seria o **a**. Calculamos o **b**, através da expressão $ b = n/a$. Assim, teremos os **pares divisores** do número **n**.
+   **Como calcular o número total de divisores na prática, usando este processo descrito?**
+   Ao criar o seu algoritmo com um laço _for()_ testando a variável $i$ de 1 até o valor inteiro positivo de $\sqrt{n}$, a lógica de contagem fica assim:
 
-> **Dica:** Lembre-se de tratar o caso onde o número é um "quadrado perfeito" (como $5 \times 5 = 25$), para não contar o mesmo divisor duas vezes!
+   * Se $n$ tiver resto zero ao ser dividido por $i$, você encontrou um divisor;
+   * Você então verifica quem é o parceiro dele: $j = \frac{n}{i}$.
+   * Se $i \neq j$, você soma **2** à sua contador de divisores - pois acabou de encontrar dois divisores distintos -, que você pode chamar de $contDivisores$, por exemplo;
+   * Se $i = j$ (o que só acontece se $n$ for um quadrado perfeito), você soma apenas **1** ao contador, para não contar o mesmo número duas vezes.
+   >
+   > **COMO SE CHEGOU NESSA IDEIA?**
+   >Matematicamente, podemos afirmar que um número inteiro positivo - ou seja, Natural - $n$ é composto pela multiplicação de dois outros números de mesma natureza, menores ou iguais a $n$, tal que:
+   > $n=a \times b$, podendo ser, $a >b$ ou $a<b$ ou $a=b$. 
+   > No último caso, $a=b$, temos um número **quadrado perfeito** (exemplo: $25 = 5 \times 5$).
+   > Podemos afirmar, também, que podemos compor os valores de $n$ a partir de valores pequenos para $a$ e grandes para $b$. Vejamos um exemplo prático deste processo no quadro a seguir:
+   >
+   > **Análise de Divisores de $n = 36$ ($\sqrt{36} = 6$)**
+   >    | Teste ($p$) | Divide 36? | Cálculo do Par ($q = 36/p$) | Divisores Encontrados | Observação |
+   >    | :---: | :---: | :---: | :---: | :--- |
+   >    | **1** | Sim | $36 / 1 = 36$ | 1 e 36 | Primeiro par encontrado (os extremos). |
+   >    | **2** | Sim | $36 / 2 = 18$ | 2 e 18 | Ambos são divisores legítimos. |
+   >    | **3** | Sim | $36 / 3 = 12$ | 3 e 12 | Ambos são divisores legítimos. |
+   >    | **4** | Sim | $36 / 4 = 9$ | 4 e 9 | Ambos são divisores legítimos. |
+   >    | **5** | Não | — | Nenhum | O resto da divisão não é zero. |
+   >    | **6** | Sim | $36 / 6 = 6$ | 6 | $p = q$ (Quadrado perfeito). Conta-se apenas uma vez. |
+   >
+
+   **Refaça a rotina `contarDivisores(n)`, usando estas informações.**
+3. Use `console.time()` e `console.timeEnd()` para comparar o tempo de execução das duas versões com o número $999.999.999$.
 
 ## 2) Inversão de *Array*
 
