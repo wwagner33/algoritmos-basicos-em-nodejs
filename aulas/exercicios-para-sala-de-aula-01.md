@@ -217,6 +217,7 @@ O **ES6** é a abreviação de **ECMAScript 6** (oficialmente chamado de ECMAScr
 Abaixo, uma lista de referências para leitura que ajudarão na resulução dos exercícios.
 
 * **Estruturas de repetição (Laço `for`)**: [MDN - for statement](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/for)
+* **Eloquent Javascript**: [Capítulo 03](https://eloquentjavascript.net/03_functions.html)
 * **Manipulação e Métodos de String**: [MDN - String](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String)
 * **Extração de textos (`slice` vs `substring`)**: [MDN - String.prototype.substring()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
 * **Template Literals (Strings complexas)**: [MDN - Template strings](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Template_literals)
