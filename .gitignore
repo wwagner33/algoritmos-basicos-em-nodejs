@@ -27,3 +27,9 @@ report.[0-9]*.json.gz
 dist/
 build/
 *.tsbuildinfo
+*.pdf
+
+#Privados
+priv-*/
+
+
