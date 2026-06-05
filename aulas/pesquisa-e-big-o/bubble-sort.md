@@ -55,4 +55,3 @@ end procedure
 
 * **Pseudo-código Otimizado 01:** [arquivo](bubble-sort-pseudocodigo-otimizado-01.pdf)
 * **Pseudo-código Otimizado 02:** [arquivo](bubble-sort-pseudocodigo-otimizado-02.pdf)
-
