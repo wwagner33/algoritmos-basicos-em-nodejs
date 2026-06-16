@@ -23,9 +23,9 @@ Escreva uma função chamada `contarDivisores(n)` que recebe um número inteiro 
    * Você então verifica quem é o parceiro dele: $j = \frac{n}{i}$.
    * Se $i \neq j$, você soma **2** à sua contador de divisores - pois acabou de encontrar dois divisores distintos -, que você pode chamar de $contDivisores$, por exemplo;
    * Se $i = j$ (o que só acontece se $n$ for um quadrado perfeito), você soma apenas **1** ao contador, para não contar o mesmo número duas vezes.
-   >
+   
    > **COMO SE CHEGOU NESSA IDEIA?**
-   >Matematicamente, podemos afirmar que um número inteiro positivo - ou seja, Natural - $n$ é composto pela multiplicação de dois outros números de mesma natureza, menores ou iguais a $n$, tal que:
+   > Matematicamente, podemos afirmar que um número inteiro positivo - ou seja, Natural - $n$ é composto pela multiplicação de dois outros números de mesma natureza, menores ou iguais a $n$, tal que:
    > $n=a \times b$, podendo ser, $a >b$ ou $a<b$ ou $a=b$. 
    > No último caso, $a=b$, temos um número **quadrado perfeito** (exemplo: $25 = 5 \times 5$).
    > Podemos afirmar, também, que podemos compor os valores de $n$ a partir de valores pequenos para $a$ e grandes para $b$. Vejamos um exemplo prático deste processo no quadro a seguir:
