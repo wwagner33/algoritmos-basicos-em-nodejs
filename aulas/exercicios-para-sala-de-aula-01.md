@@ -1,6 +1,6 @@
 # Exercícios para Sala de Aula
 
-*26/05/2026*
+*16/06/2026 (atualizada)*
 *Prof. Wellington Sarmento*
 
 ## 1) O Detetive de Divisores
@@ -212,6 +212,108 @@ O **ES6** é a abreviação de **ECMAScript 6** (oficialmente chamado de ECMAScr
 > 
 > É por causa do impacto gigantesco dessa atualização que, no mundo do desenvolvimento web, frequentemente dividimos a história da linguagem entre o "JavaScript Clássico" (antes de 2015) e o "JavaScript Moderno" (do ES6 em diante).
 
+## 12) O Inventário de Produtos (Objetos Literais Básicos)
+
+**Contexto:** Variáveis simples são ótimas para dados isolados, mas na vida real os dados andam agrupados. Um produto de e-commerce, por exemplo, possui nome, preço e quantidade em estoque. Objetos literais nos permitem modelar essas entidades do mundo real encapsulando suas propriedades em uma única estrutura estruturada por chaves (`{}`).
+
+**O Desafio:**
+Crie um objeto literal chamado `produto` que represente um item de tecnologia.
+
+1. O objeto deve conter as propriedades: `nome` (string), `preco` (number) e `emEstoque` (boolean).
+2. Adicione uma propriedade que seja uma função interna (um método) chamada `calcularTotalEstoque(quantidadeDesejada)`. Esse método deve multiplicar o preço do produto pela quantidade enviada por parâmetro e retornar o valor monetário.
+3. Imprima no terminal uma frase utilizando *Template Strings* que acione o método criado.
+
+**Exemplo de Objeto Interno:** `nome: "Teclado Mecânico", preco: 250`
+**Saída esperada no console:** `"O valor para 3 unidades de Teclado Mecânico é R$ 750"`
+
+## 13) O Relatório do Painel (Vetor de Objetos Literais e Iteração)
+
+**Contexto:** Sistemas de gestão e dashboards não lidam com apenas um objeto, mas sim com listas deles. Em JavaScript, representamos isso combinando vetores (Arrays) com objetos literais. Saber iterar sobre essas estruturas e extrair propriedades específicas é uma habilidade fundamental para manipular dados vindos de APIs e bancos de dados.
+
+**O Desafio:**
+Crie um array chamado `usuarios` contendo 3 objetos literais. Cada objeto deve representar um usuário com as propriedades: `id`, `nome` e `ativo` (boolean).
+
+1. Utilize o método `.forEach()` para percorrer o vetor `usuarios`.
+2. Para cada usuário cadastrado, verifique se a propriedade `ativo` é verdadeira.
+3. Exiba no terminal uma mensagem personalizada apenas para os usuários que estiverem com o status ativo no sistema.
+
+**Exemplo de entrada (Array):**
+
+```javascript
+let usuarios = [
+    { id: 1, nome: "Wellington", ativo: true },
+    { id: 2, nome: "Ana", ativo: false },
+    { id: 3, nome: "Carlos", ativo: true }
+];
+
+```
+
+**Saída esperada no console:**
+
+```bash
+Usuário Ativo: Wellington (ID: 1)
+Usuário Ativo: Carlos (ID: 3)
+
+```
+
+## 14) A Média da Turma (Acumulação em Vetores de Objetos)
+
+**Contexto:** Além de apenas listar ou filtrar dados de coleções de objetos, frequentemente precisamos processar valores numéricos contidos dentro deles, como somar o faturamento de vendas ou calcular médias de notas de alunos em um diário de classe.
+
+**O Desafio:**
+Escreva uma função chamada `calcularMediaTurma(listaAlunos)` que receba um array de objetos literais, onde cada objeto possui as propriedades `nome` e `nota`.
+
+1. Utilize um laço de repetição (`for` clássico ou `.forEach()`) para ler a nota de cada objeto dentro do array.
+2. Acumule os valores dessas notas em uma variável de soma e calcule a média aritmética simples da turma.
+3. Retorne o valor final da média arredondado para uma casa decimal usando o método `.toFixed(1)`.
+
+**Exemplo de entrada:**
+
+```javascript
+let alunos = [
+    { nome: "Tiago", nota: 8.5 },
+    { nome: "Beatriz", nota: 9.0 },
+    { nome: "Lucas", nota: 6.5 }
+];
+
+```
+
+**Saída esperada:** `8.0`
+
+## 15) A Fábrica de Carros (Criação de Classes e Instanciação)
+
+**Contexto:** Objetos literais são excelentes para estruturas rápidas, mas se precisarmos criar centenas de objetos com as mesmas propriedades e métodos, copiar e colar chaves se torna inviável. O ES6 introduziu a palavra-chave `class`, que funciona como uma "fôrma" ou "fábrica" de objetos, permitindo a instanciação padronizada de novas entidades através do operador `new`.
+
+**O Desafio:**
+Crie uma classe chamada `Carro` que sirva de molde para fabricar automóveis virtuais.
+
+1. A classe deve possuir um método especial chamado `constructor` que receba os parâmetros `marca`, `modelo` e `ano`, atribuindo-os às propriedades internas da instância através do operador contextual `this`.
+2. Adicione um método comum chamado `obterDescricao()` dentro da classe que retorne o texto: `"Este carro é um [marca] [modelo] ano [ano]"`.
+3. Instancie dois carros diferentes usando o operador `new` e exiba o resultado do método `obterDescricao()` de ambos no console.
+
+**Exemplo de chamada:** `const meuCarro = new Carro("Toyota", "Corolla", 2024);`
+**Saída esperada no console:** `"Este carro é um Toyota Corolla ano 2024"`
+
+## 16) O Simulador de Conta Bancária (Métodos de Classe com Estado Mutável)
+
+**Contexto:** Objetos e classes não servem apenas para armazenar dados estáticos; eles gerenciam estados que mudam ao longo do tempo através de interações seguras. Em sistemas bancários ou de jogos, chamamos métodos específicos para alterar valores internos, simulando as regras de negócio reais da aplicação.
+
+**O Desafio:**
+Crie uma classe chamada `ContaBancaria` para gerenciar transações financeiras básicas.
+
+1. O `constructor` deve receber o nome do `titular` e iniciar uma propriedade interna chamada `saldo` sempre com o valor padrão de `0`.
+2. Crie um método chamado `depositar(valor)`. Esse método deve somar o valor recebido por parâmetro diretamente ao `saldo` da conta.
+3. Crie um método chamado `sacar(valor)`. Esse método deve verificar se o saldo atual é suficiente para realizar a operação. Se for, subtraia o valor do saldo; caso contrário, exiba no console a mensagem `"Saldo insuficiente para o saque de R$ [valor]"`.
+
+**Exemplo de teste de execução:**
+
+```javascript
+const minhaConta = new ContaBancaria("Prof. Wellington");
+minhaConta.depositar(100);
+minhaConta.sacar(150); // Deve exibir aviso de saldo insuficiente
+
+```
+
 ## Referências para Estudo
 
 Abaixo, uma lista de referências para leitura que ajudarão na resulução dos exercícios.
@@ -225,3 +327,5 @@ Abaixo, uma lista de referências para leitura que ajudarão na resulução dos 
 * **Parâmetros Predefinidos (Default Parameters)**: [MDN - Parâmetros Predefinidos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 * **Arrow Functions**: [MDN - Arrow function expressions](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 * **Iteração em Arrays (`forEach`)**: [MDN - Array.prototype.forEach()](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+* **Trabalhando com Objetos (MDN)**: [MDN - Working with Objects](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Working_with_Objects)
+* **Classes em JavaScript (MDN)**: [MDN - Classes](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Classes)
